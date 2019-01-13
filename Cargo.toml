@@ -1,0 +1,14 @@
+[package]
+name = "jq-sys"
+version = "0.1.0"
+license = "Apache-2.0/MIT"
+authors = ["Owen Nelson <onelson@gmail.com>"]
+description = "Generated bindings for libjq."
+homepage = "https://github.com/onelson/jq-sys"
+repository = "https://github.com/onelson/jq-sys"
+categories = ["external-ffi-bindings"]
+keywords = ["json", "jq"]
+readme = "README.md"
+
+[dependencies]
+jq-src = "0.1"

@@ -1,0 +1,4 @@
+[submodule "modules/jq"]
+	path = modules/jq
+	url = https://github.com/onelson/jq.git
+	branch = release-1.6
