@@ -1,6 +1,6 @@
 [package]
 name = "jq-sys"
-version = "0.1.0"
+version = "0.1.1"
 license = "Apache-2.0/MIT"
 authors = ["Owen Nelson <onelson@gmail.com>"]
 description = "Generated bindings for libjq."
@@ -10,5 +10,9 @@ categories = ["external-ffi-bindings"]
 keywords = ["json", "jq"]
 readme = "README.md"
 
+[features]
+default = ["bundled"]
+bundled = ["jq-src"]
+
 [dependencies]
-jq-src = "0.1"
+jq-src = { version = "0.1", optional = true }
