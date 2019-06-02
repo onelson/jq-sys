@@ -96,18 +96,6 @@ mod non_bundled {
 }
 
 fn main() {
-    println!("cargo:rerun-if-env-changed=JQ_LIB_DIR");
-    println!("cargo:rerun-if-env-changed=JQ_LIB_STATIC");
-    println!("cargo:rerun-if-env-changed=JQ_NO_ONIG");
-    println!("cargo:rerun-if-env-changed=ONIG_LIB_DIR");
-    println!("cargo:rerun-if-env-changed=ONIG_LIB_STATIC");
-    println!("cargo:rerun-if-env-changed=TARGET");
-    println!("cargo:rerun-if-changed=build.rs");
-    println!(
-        "cargo:rerun-if-changed={}",
-        concat!(env!("CARGO_MANIFEST_DIR"), "/Cargo.lock")
-    );
-
     if cfg!(feature = "bundled") {
         return build_bundled();
     } else {

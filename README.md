@@ -1,3 +1,9 @@
+# jq-sys
+
+[![crates.io](https://img.shields.io/crates/v/jq-sys.svg)](https://crates.io/crates/jq-sys)
+[![crates.io](https://img.shields.io/crates/d/jq-sys.svg)](https://crates.io/crates/jq-sys)
+[![docs.rs](https://docs.rs/jq-sys/badge.svg)](https://docs.rs/jq-sys)
+
 Generated bindings for [jq] 1.6.
 
 The bindings were generated with `bindgen`, which is available via
@@ -28,7 +34,7 @@ yourself.
 When *not using* the `bundled` feature, you'd either have to compile `libjq` yourself, or use libs furnished by your
 system package manager.
 
-For example on debian systems, you might install `libjq1 libjq-dev libonig4 libonig-dev`. 
+For example on **debian systems**, you might install `libjq1 libjq-dev libonig4 libonig-dev`.
 
 The following env vars can be used to provide hints to the build script.
 
@@ -40,7 +46,20 @@ The following env vars can be used to provide hints to the build script.
 | `ONIG_LIB_DIR` | Path to the location of the library. | Defaults to `JQ_LIB_DIR`, ignored if `JQ_NO_ONIG` is set. |
 | `ONIG_LIB_STATIC` | Use static linking instead of shared. | Ignored if `JQ_NO_ONIG` is set. |
 
+
+> Note that if you are using the `pkg-config` feature and it is unable to locate `libjq`, can specify the location
+> explicitly by setting `JQ_LIB_DIR`.
+>
+> This may be required on **debian** based distros (including **ubuntu**) since, at the time of writing, the
+> distro packages for `jq` do not include the `.pc` files required for `pkg-config` to locate the files.
+
 # Changelog
+
+## 0.2.1 (2019-06-01)
+
+- re-generated `src/bindings.rs` with `bindgen` v0.49.2.
+- Updated dependency on [jq-src] to v0.3.
+- Updated `build.rs` to avoid rebuilding jq from source more often than needed when using `bundled` feature ([#2]).
 
 ## 0.2.0 (2019-02-18)
 
@@ -65,3 +84,5 @@ Initial release.
 
 [jq-src]: https://crates.io/crate/jq-src
 [jq]: https://github.com/stedolan/jq
+
+[#2]: https://github.com/onelson/jq-sys/issues/2

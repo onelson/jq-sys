@@ -806,15 +806,12 @@ pub struct _IO_FILE_plus {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}_IO_2_1_stdin_"]
     pub static mut _IO_2_1_stdin_: _IO_FILE_plus;
 }
 extern "C" {
-    #[link_name = "\u{1}_IO_2_1_stdout_"]
     pub static mut _IO_2_1_stdout_: _IO_FILE_plus;
 }
 extern "C" {
-    #[link_name = "\u{1}_IO_2_1_stderr_"]
     pub static mut _IO_2_1_stderr_: _IO_FILE_plus;
 }
 pub type __io_read_fn = ::std::option::Option<
@@ -917,15 +914,12 @@ extern "C" {
 pub type off_t = __off_t;
 pub type fpos_t = _G_fpos_t;
 extern "C" {
-    #[link_name = "\u{1}stdin"]
     pub static mut stdin: *mut _IO_FILE;
 }
 extern "C" {
-    #[link_name = "\u{1}stdout"]
     pub static mut stdout: *mut _IO_FILE;
 }
 extern "C" {
-    #[link_name = "\u{1}stderr"]
     pub static mut stderr: *mut _IO_FILE;
 }
 extern "C" {
@@ -1056,7 +1050,7 @@ extern "C" {
 extern "C" {
     pub fn snprintf(
         __s: *mut ::std::os::raw::c_char,
-        __maxlen: usize,
+        __maxlen: ::std::os::raw::c_ulong,
         __format: *const ::std::os::raw::c_char,
         ...
     ) -> ::std::os::raw::c_int;
@@ -1064,7 +1058,7 @@ extern "C" {
 extern "C" {
     pub fn vsnprintf(
         __s: *mut ::std::os::raw::c_char,
-        __maxlen: usize,
+        __maxlen: ::std::os::raw::c_ulong,
         __format: *const ::std::os::raw::c_char,
         __arg: *mut __va_list_tag,
     ) -> ::std::os::raw::c_int;
@@ -1328,11 +1322,9 @@ extern "C" {
     pub fn perror(__s: *const ::std::os::raw::c_char);
 }
 extern "C" {
-    #[link_name = "\u{1}sys_nerr"]
     pub static mut sys_nerr: ::std::os::raw::c_int;
 }
 extern "C" {
-    #[link_name = "\u{1}sys_errlist"]
     pub static mut sys_errlist: [*const ::std::os::raw::c_char; 0usize];
 }
 extern "C" {
