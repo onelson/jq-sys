@@ -5,7 +5,7 @@ extern crate pkg_config;
 
 #[cfg(feature = "bundled")]
 fn build_bundled() {
-    jq_src::Build::new().build().print_link_info();
+    jq_src::build().expect("autotools build").print_cargo_metadata();
 }
 
 #[cfg(not(feature = "bundled"))]
