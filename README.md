@@ -55,11 +55,17 @@ The following env vars can be used to provide hints to the build script.
 
 # Changelog
 
+## 0.2.2 (2019-06-09)
+
+- Update optional dep on [jq-src] to mitigate [build failures][jq-src#1] when
+  using the `bundled` feature.
+
 ## 0.2.1 (2019-06-01)
 
 - re-generated `src/bindings.rs` with `bindgen` v0.49.2.
 - Updated dependency on [jq-src] to v0.3.
-- Updated `build.rs` to avoid rebuilding jq from source more often than needed when using `bundled` feature ([#2]).
+- Updated `build.rs` to avoid rebuilding jq from source more often than needed
+  when using `bundled` feature ([#2]).
 
 ## 0.2.0 (2019-02-18)
 
@@ -86,3 +92,4 @@ Initial release.
 [jq]: https://github.com/stedolan/jq
 
 [#2]: https://github.com/onelson/jq-sys/issues/2
+[jq-src#1]: https://github.com/onelson/jq-src/issues/1
