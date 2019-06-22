@@ -4,16 +4,3 @@
 
 mod bindings;
 pub use bindings::*;
-
-#[cfg(test)]
-mod tests {
-    use super::{jq_init, jq_state, jq_teardown};
-
-    #[test]
-    fn can_init_and_teardown() {
-        unsafe {
-            let state: *mut jq_state = jq_init();
-            jq_teardown(state as *mut *mut jq_state);
-        }
-    }
-}
