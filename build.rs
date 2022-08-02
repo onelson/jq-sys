@@ -5,7 +5,9 @@ extern crate pkg_config;
 
 #[cfg(feature = "bundled")]
 fn build_bundled() {
-    jq_src::build().expect("autotools build").print_cargo_metadata();
+    jq_src::build()
+        .expect("autotools build")
+        .print_cargo_metadata();
 }
 
 #[cfg(not(feature = "bundled"))]
@@ -18,7 +20,8 @@ mod non_bundled {
     pub fn configured_by_pkg_config(lib_cfg: &LibConfig) -> bool {
         let got_jq = pkg_config::probe_library("libjq");
         if !lib_cfg.no_onig {
-            let got_onig = pkg_config::probe_library("libonig");
+            let got_onig = pkg_config::probe_library("libonig")
+                .or_else(|_| pkg_config::probe_library("oniguruma"));
             got_jq.is_ok() && got_onig.is_ok()
         } else {
             got_jq.is_ok()
@@ -92,7 +95,6 @@ mod non_bundled {
             }
         }
     }
-
 }
 
 fn main() {
